@@ -33,6 +33,80 @@
         <button type="button" class="boton-de-descarga"><i class="fa-solid fa-download"></i>Descargar meme</button>
     </main>
     <!-- Fin del área del meme -->
+
+    <!-- Editor de imágen -->
+    <aside class="editor-de-imagen">
+        <section>
+            <h2 class="titulo-imagen">IMAGEN</h2>
+            <button class="cerrar-menu" aria-label="Cerrar el menu"><i class="fa-solid fa-x"></i></button>
+            <!-- Sección de añadicion de imágen -->
+            <div class="url-contenedor">
+                <p class="">Añade una imagen</p>
+                <input type="text" class="url-de-imagen" aria-label="URL de una imagen" placeholder="Añade una URL">
+                <input type="file" id="agrega-archivo" aria-label="Subir un archivo" accept=".jpg, .png">
+            </div>
+            <!-- Editor de FONDO -->
+            <div class="fondo-contenedor">
+                <h3 class="fondo-titulo">Fondo</h3>
+                <input type="color" name="color-de-fondo" value="#FFFFFF" aria-label="Cambia de color el fondo">
+                <span id="color-de-fondo" aria-hidden="">#FFFFFF</span>
+            </div>
+            <div>
+                <select id="mezcla-de-colores" class="mezcla-de-colores" aria-label="Modo de mezcla de fondo de Imagen">
+                    <option value="NINGUNO">Ninguno</option>
+                    <option value="BRILLO">Brillo</option>
+                    <option value="DESENFOQUE">Desenfoque</option>
+                    <option value="ACLARAR">Aclarar</option>
+                    <option value="OSCURECER">Oscurecer</option>
+                    <option value="CONTRASTE">Contraste</option>
+                    <option value="ESCALA-DE-GRISES">Escala de grises</option>
+                    <option value="MULTIPLICAR">Multiplicar</option>
+                </select>
+            </div>
+            <!-- Editor de FILTROS -->
+            <div class="filtros-contenedor">
+                <h3 class="filtros-titulo">Filtros</h3>
+                <div class="contenedor-deslizador">
+                    <label class="brillo-deslizador">Brillo</label>
+                    <input id="deslizador-de-brillo" class="filtro-deslizador" type="range" min="0" max="1" value="1" step="0.1" >
+                </div>
+                <div class="contenedor-deslizador">
+                    <label class="opacidad-deslizador">Opacidad</label>
+                    <input id="deslizador-de-opacidad" class="filtro-deslizador" type="range" min="0" max="1" value="1" step="0.1">
+                </div>
+                <div class="contenedor-deslizador">
+                    <label class="constraste-deslizador">Contraste</label>
+                    <input id="deslizador-de-contraste" class="filtro-deslizador" type="range" min="100" max="1000" value="100"> 
+                </div>
+                <div class="contenedor-deslizador">
+                    <label class="desenfoque-deslizador">Desenfoque</label>
+                    <input id="deslizador-de-desenfoque" class="filtro-deslizador" type="range" min="0" max="10" value="0" step="0.1">
+                </div>
+                <div class="contenedor-deslizador">
+                    <label class="escala-de-grises-deslizador">Escala de grises</label>
+                    <input id="deslizador-de-escalas" class="filtro-deslizador" type="range" min="0" max="100" value="0">
+                </div>
+                <div class="contenedor-deslizador">
+                    <label class="sepia-deslizador">Sepia</label>
+                    <input id="deslizador-de-sepia" class="filtro-deslizador" type="range" min="0" max="100" value="0">
+                </div>
+                <div class="contenedor-deslizador">
+                    <label class="hue-deslizador">Hue</label>
+                    <input id="deslizador-de-hue" class="filtro-deslizador" type="range" min="0" max="360" value="0">
+                </div>
+                <div class="contenedor-deslizador">
+                    <label class="saturado-deslizador">Saturado</label>
+                    <input id="deslizador-de-saturado" class="filtro-deslizador" type="range" min="100" max="1000" value="100" step="10">
+                </div>
+                <div class="contenedor-deslizador">
+                    <label class="negativo-deslizador">Negativo</label>
+                    <input id="deslizador-de-negativo" class="filtro-deslizador" type="range" min="0" max="1" value="0-1" >
+                </div>
+            </div>
+            <!-- Botón de restablecer filtros -->
+            <button class="boton-restablecedor"><i class="fa-solid fa-rotate-right"></i>Restablecer filtros</button>
+        </section>
+    </aside>
 </body>
 
 </html>

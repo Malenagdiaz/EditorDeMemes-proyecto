@@ -56,7 +56,48 @@ header {
     margin-right: 5px;
 }
 
+/* Estilos para el ÁREA DEL MEME */
 
+main{
+    background-color: #f5dff5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
 
+.contenedor-de-meme{
+    background-color: white;
+    margin: 15px;
+    width: 47vw;
+    box-shadow: 0 0 15px #1b003a;
+}
 
+.texto-superior, .texto-inferior{
+    margin: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.25rem;
+}
 
+.imagen-meme{
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
+
+.boton-de-descarga{
+    border: 1px solid #1b003a;
+    border-radius: 8px;
+    background-color: #af7ead;
+    color: #1b003a;
+    padding: 7px 15px;
+    font-size: 1.125rem;
+    font-family: 'Amatic SC', sans-serif;
+    font-weight: bolder;
+    box-shadow: 0 0 10px #1b003a;
+}
+
+.boton-de-descarga:hover{
+    background-color: #dcbadb;
+    transform: scale(0.85);
+}

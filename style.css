@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos al HEADER: titulo y botones */
+
+header {
+    width: 100%;
+    height: 20vh;
+    background-color: #af7ead;
+    box-shadow: 0 4px 5px #1b003a;
+}
+
+.titulo-principal {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.875rem;
+    font-family: 'Amatic SC', sans-serif;
+    font-family: 'Press Start 2P', system-ui;
+    color: #dac9df;
+}
+
+/* BOTONES */
+
+.botones-navegacion {
+    display: flex;
+    justify-content: center;
+}
+
+.boton-de-modo-claro{
+    display: none;
+}
+
+.boton-de-imagen, .boton-de-fuente, .boton-de-modo-oscuro, .boton-de-modo-claro{
+    margin: 10px;
+    font-size: 1.25rem;
+    font-family: 'Amatic SC', sans-serif;
+    color: #dac9df;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    background: none;
+    transition: border 0.1s ease, padding 0.1s ease;
+}
+
+.boton-de-imagen:hover, .boton-de-fuente:hover, .boton-de-modo-oscuro:hover, .boton-de-modo-claro:hover{
+    padding: 5px;
+    border: 2px solid;
+    border-radius: 20px;
+    color: #1b003a;
+} 
+
+.boton-de-imagen i, .boton-de-fuente i, .boton-de-modo-oscuro i, .boton-de-modo-claro i{
+    margin-right: 5px;
+}
+
+
+
+
+

@@ -15,31 +15,33 @@
     <title>Editor de memes</title>
 </head>
 
-<body>
-    <!-- Sección HEADER con titulo y botones -->
-    <header>
-        <h1 class="titulo-principal">Generador de memes</h1>
-        <nav class="botones-navegacion">
-            <!-- Botones -->
-            <button class="boton-de-imagen"><i class="fa-regular fa-image"></i>Imagen</button>
-            <button class="boton-de-fuente"><i class="fa-solid fa-font"></i>Texto</button>
-            <button class="boton-de-modo-oscuro"><i class="fa-solid fa-moon"></i>Modo oscuro</button>
-            <button class="boton-de-modo-claro"><i class="fa-regular fa-sun"></i>Modo claro</button>
-        </nav>
-    </header>
-    <!-- Fin del HEADER -->
+<body class="generador-de-meme">
+    <div class="meme-contenedor">
+        <!-- Sección HEADER con titulo y botones -->
+        <header>
+            <h1 class="titulo-principal">Generador de memes</h1>
+            <nav class="botones-navegacion">
+                <!-- Botones -->
+                <button class="boton-de-imagen"><i class="fa-regular fa-image"></i>Imagen</button>
+                <button class="boton-de-fuente"><i class="fa-solid fa-font"></i>Texto</button>
+                <button class="boton-de-modo-oscuro"><i class="fa-solid fa-moon"></i>Modo oscuro</button>
+                <button class="boton-de-modo-claro"><i class="fa-regular fa-sun"></i>Modo claro</button>
+            </nav>
+        </header>
+        <!-- Fin del HEADER -->
 
-    <!-- Área del meme: IMAGEN Y TEXTO -->
-    <main>
-        <div class="contenedor-de-meme">
-            <p class="texto-superior" id="texto-del-meme">NUEVO-TEXTO-SUPERIOR</p>
-            <img src="Imagenes/shrek-meme.jpg" alt="Imagen-de-meme" class="imagen-meme">
-            <p class="texto-inferior" id="texto-del-meme">NUEVO-TEXTO-INFERIOR</p>
-        </div>
-        <!-- Boton de descarga -->
-        <button type="button" class="boton-de-descarga"><i class="fa-solid fa-download"></i>Descargar meme</button>
-    </main>
-    <!-- Fin del área del meme -->
+        <!-- Área del meme: IMAGEN Y TEXTO -->
+        <main>
+            <div class="contenedor-de-meme">
+                <p class="texto-superior" id="texto-del-meme">NUEVO-TEXTO-SUPERIOR</p>
+                <img src="Imagenes/shrek-meme.jpg" alt="Imagen-de-meme" class="imagen-meme">
+                <p class="texto-inferior" id="texto-del-meme">NUEVO-TEXTO-INFERIOR</p>
+            </div>
+            <!-- Boton de descarga -->
+            <button type="button" class="boton-de-descarga"><i class="fa-solid fa-download"></i>Descargar meme</button>
+        </main>
+        <!-- Fin del área del meme -->
+    </div>
 
     <!-- Editor de imágen -->
     <aside class="editor-de-imagen">

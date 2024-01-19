@@ -4,6 +4,14 @@
     box-sizing: border-box;
 }
 
+.generador-de-meme{
+    display: flex;
+}
+
+.meme-contenedor{
+    width: 100%;
+}
+
 /* Estilos al HEADER: titulo y botones */
 
 header {
@@ -69,7 +77,7 @@ main{
 .contenedor-de-meme{
     background-color: white;
     margin: 15px;
-    width: 47vw;
+    width: 45vw;
     box-shadow: 0 0 15px #1b003a;
 }
 

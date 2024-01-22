@@ -27,7 +27,9 @@ header {
     font-size: 1.875rem;
     font-family: 'Amatic SC', sans-serif;
     font-family: 'Press Start 2P', system-ui;
-    color: #dac9df;
+    background: linear-gradient(to right, #4b1c71, #7f4ca5, #b57edc);
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
 /* BOTONES */
@@ -107,18 +109,24 @@ main {
 .boton-de-descarga {
     border: 1px solid #1b003a;
     border-radius: 8px;
-    background-color: #af7ead;
+    background: linear-gradient(to right, #af7ead, #1b003a);
     color: #1b003a;
     padding: 7px 15px;
     font-size: 1.125rem;
     font-family: 'Amatic SC', sans-serif;
     font-weight: bolder;
     box-shadow: 0 0 10px #1b003a;
+
 }
 
 .boton-de-descarga:hover {
-    background-color: #dcbadb;
+    background: linear-gradient(to right, #1b003a, #af7ead);
+    color: #dac9df;
     transform: scale(0.85);
+}
+
+.boton-de-descarga i{
+    margin-right: 3px;
 }
 
 /* Estilos para EDITOR DE IMÁGEN */
@@ -329,12 +337,13 @@ input[type="color"] {
     font-family: 'Amatic SC', sans-serif;
     font-weight: bold;
     font-size: 1rem;
-    background-color: #3b113b;
+    background: linear-gradient(to right, #503459, #81638b);
     color: #b988b8;
     border: none;
     border-radius: 5px;
     padding: 6px;
     box-shadow: 0 0 10px #1b003a;
+    transition: background 0.3s ease;
 }
 
 .boton-restablecedor i {
@@ -342,7 +351,7 @@ input[type="color"] {
 }
 
 .boton-restablecedor:hover {
-    background-color: #b988b8;
+    background: linear-gradient(to right, #81638b, #503459);
     color: #3b113b;
 }
 
@@ -608,6 +617,6 @@ span#color-fondo-texto::before {
     box-shadow: 0 0 10px #1b003a;
 }
 
-.editor-de-texto{
+.editor-de-texto {
     display: none;
 }

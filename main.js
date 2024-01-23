@@ -87,3 +87,15 @@ botonDeModoClaro.addEventListener("click", function () {
     botonDeModoClaro.style.display = "none";
   }
 });
+
+// Abrir y cerrar EditorDeImagen y EditorDeTexto
+
+document.querySelector(".boton-de-imagen").addEventListener("click", () =>  {
+  document.querySelector(".editor-de-imagen").style.display = "block";
+  document.querySelector(".editor-de-texto").style.display = "none";
+});
+
+document.querySelector(".boton-de-fuente").addEventListener("click", () => {
+  document.querySelector(".editor-de-texto").style.display = "block";
+  document.querySelector(".editor-de-imagen").style.display = "none";
+});

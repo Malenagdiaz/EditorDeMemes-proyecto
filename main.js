@@ -90,7 +90,7 @@ botonDeModoClaro.addEventListener("click", function () {
 
 // Abrir y cerrar EditorDeImagen y EditorDeTexto
 
-document.querySelector(".boton-de-imagen").addEventListener("click", () =>  {
+document.querySelector(".boton-de-imagen").addEventListener("click", () => {
   document.querySelector(".editor-de-imagen").style.display = "block";
   document.querySelector(".editor-de-texto").style.display = "none";
 });
@@ -107,24 +107,24 @@ const entradaArchivo = document.getElementById("agrega-archivo");
 const imagenMemeElemento = document.querySelector(".imagen-meme");
 
 imagenUrl.addEventListener("input", function () {
-    const urlImagen = imagenUrl.value;
-    actualizarImagenMeme(urlImagen);
+  const urlImagen = imagenUrl.value;
+  actualizarImagenMeme(urlImagen);
 });
 
 entradaArchivo.addEventListener("change", function () {
-    const archivo = entradaArchivo.files[0];
-    if (archivo) {
-        const urlImagen = URL.createObjectURL(archivo);
-        actualizarImagenMeme(urlImagen);
-    }
+  const archivo = entradaArchivo.files[0];
+  if (archivo) {
+    const urlImagen = URL.createObjectURL(archivo);
+    actualizarImagenMeme(urlImagen);
+  }
 });
 
 function actualizarImagenMeme(urlImagen) {
-    const contenedorMemeElemento = document.querySelector(".contenedor-de-meme");
-    const imagenMeme = document.querySelector(".imagen-meme");
+  const contenedorMemeElemento = document.querySelector(".contenedor-de-meme");
+  const imagenMeme = document.querySelector(".imagen-meme");
 
-    imagenMeme.src = urlImagen;
-};
+  imagenMeme.src = urlImagen;
+}
 
 // Boton de descarga
 
@@ -132,7 +132,30 @@ const botonDescarga = document.querySelector(".boton-de-descarga");
 const memeContenedor = document.querySelector(".contenedor-de-meme");
 
 botonDescarga.addEventListener("click", () => {
-    domtoimage.toBlob(memeContenedor).then((blob) => {
-        window.saveAs(blob, "mi-meme.png");
-    });
+  domtoimage.toBlob(memeContenedor).then((blob) => {
+    window.saveAs(blob, "mi-meme.png");
+  });
+});
+
+// Color para el fondo IMG
+
+const colordeInput = document.getElementById("color-input");
+const fondo = document.querySelector(".contenedor-de-meme");
+
+colordeInput.addEventListener("input", () => {
+  console.log(colordeInput.value);
+  fondo.style.backgroundColor = colordeInput.value;
+});
+
+let inputColor = document.getElementById("color-input");
+let colorSpan = document.getElementById("color-de-fondo");
+
+inputColor.addEventListener("input", function () {
+  let nuevoColor = inputColor.value;
+
+  colorSpan.style.color = nuevoColor;
+
+  colorSpan.textContent = nuevoColor;
+
+  colorSpan.style.setProperty("--circle-color", nuevoColor);
 });

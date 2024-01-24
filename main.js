@@ -212,4 +212,40 @@ function restablecerFiltros() {
     document.getElementById("deslizador-de-negativo").value = 0.1;
   
   filtrosDeslizadores();
-}
+};
+
+// Texto superior 
+
+let textoSuperior = document.getElementById("texto-sup");
+let textoSupMeme = document.getElementById("texto-del-meme-superior");
+
+textoSuperior.addEventListener("input", function() {
+  textoSupMeme.textContent = textoSuperior.value;
+});
+
+// Ocultar el texto superior 
+
+let ocultarTextoS = document.getElementById("sin-texto-superior");
+let textoSMeme = document.getElementById("texto-del-meme-superior");
+
+ocultarTextoS.addEventListener("change", function() {
+  textoSMeme.style.display = ocultarTextoS.checked ? "none" : "block"
+});
+
+// Texto inferior
+
+let textoInferior = document.getElementById("texto-inf");
+let textoInfMeme = document.getElementById("texto-del-meme-inferior");
+
+textoInferior.addEventListener("input", function() {
+  textoInfMeme.textContent = textoInferior.value;
+});
+
+// Ocultar el texto inferior
+
+let ocultarTextoI = document.getElementById("sin-texto-inferior");
+let textoIMeme = document.getElementById("texto-del-meme-inferior");
+
+ocultarTextoI.addEventListener("change", function() {
+  textoIMeme.style.display = ocultarTextoI.checked ? "none" : "block"
+})

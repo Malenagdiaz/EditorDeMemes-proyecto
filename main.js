@@ -125,3 +125,14 @@ function actualizarImagenMeme(urlImagen) {
 
     imagenMeme.src = urlImagen;
 };
+
+// Boton de descarga
+
+const botonDescarga = document.querySelector(".boton-de-descarga");
+const memeContenedor = document.querySelector(".contenedor-de-meme");
+
+botonDescarga.addEventListener("click", () => {
+    domtoimage.toBlob(memeContenedor).then((blob) => {
+        window.saveAs(blob, "mi-meme.png");
+    });
+});

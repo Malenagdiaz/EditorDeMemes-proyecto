@@ -172,7 +172,7 @@ let hue = 0;
 let saturado = 100;
 let negativo = 0.1;
 
-function mezclaDeColores() {
+function filtrosDeslizadores() {
   brillo = document.getElementById("deslizador-de-brillo").value;
   opacidad = document.getElementById("deslizador-de-opacidad").value;
   contraste = document.getElementById("deslizador-de-contraste").value;
@@ -190,10 +190,10 @@ function mezclaDeColores() {
 
 let deslizadores = document.querySelectorAll(".filtro-deslizador");
 deslizadores.forEach(function (deslizador) {
-  deslizador.addEventListener("input", mezclaDeColores);
+  deslizador.addEventListener("input", filtrosDeslizadores);
 });
 
-mezclaDeColores();
+filtrosDeslizadores();
 
 // Boton para restablecer los filtros
 
@@ -211,5 +211,5 @@ function restablecerFiltros() {
     document.getElementById("deslizador-de-saturado").value = 100;
     document.getElementById("deslizador-de-negativo").value = 0.1;
   
-  mezclaDeColores();
+  filtrosDeslizadores();
 }

@@ -102,7 +102,7 @@ main {
 .texto-inferior {
     width: 100%;
     text-align: center;
-    padding: 25px;
+    padding: 20px;
     position: absolute;
     font-family: 'Times New Roman', Times, serif;
     font-size: 1.25rem;

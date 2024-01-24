@@ -186,7 +186,7 @@ function filtrosDeslizadores() {
   let filtros = `brightness(${brillo}) opacity(${opacidad}) contrast(${contraste}%) blur(${desenfoque}px) grayscale(${escalas}%) sepia(${sepia}%) hue-rotate(${hue}deg) saturate(${saturado}%) invert(${negativo})`;
 
   document.querySelector(".imagen-meme").style.filter = filtros;
-};
+}
 
 let deslizadores = document.querySelectorAll(".filtro-deslizador");
 deslizadores.forEach(function (deslizador) {
@@ -197,39 +197,40 @@ filtrosDeslizadores();
 
 // Boton para restablecer los filtros
 
-document.querySelector(".boton-restablecedor").addEventListener("click", restablecerFiltros);
+document
+  .querySelector(".boton-restablecedor")
+  .addEventListener("click", restablecerFiltros);
 
 function restablecerFiltros() {
+  document.getElementById("deslizador-de-brillo").value = 1;
+  document.getElementById("deslizador-de-opacidad").value = 1;
+  document.getElementById("deslizador-de-contraste").value = 100;
+  document.getElementById("deslizador-de-desenfoque").value = 0;
+  document.getElementById("deslizador-de-escalas").value = 0;
+  document.getElementById("deslizador-de-sepia").value = 0;
+  document.getElementById("deslizador-de-hue").value = 0;
+  document.getElementById("deslizador-de-saturado").value = 100;
+  document.getElementById("deslizador-de-negativo").value = 0.1;
 
-    document.getElementById("deslizador-de-brillo").value = 1;
-    document.getElementById("deslizador-de-opacidad").value = 1;
-    document.getElementById("deslizador-de-contraste").value = 100;
-    document.getElementById("deslizador-de-desenfoque").value = 0;
-    document.getElementById("deslizador-de-escalas").value = 0;
-    document.getElementById("deslizador-de-sepia").value = 0;
-    document.getElementById("deslizador-de-hue").value = 0;
-    document.getElementById("deslizador-de-saturado").value = 100;
-    document.getElementById("deslizador-de-negativo").value = 0.1;
-  
   filtrosDeslizadores();
-};
+}
 
-// Texto superior 
+// Texto superior
 
 let textoSuperior = document.getElementById("texto-sup");
 let textoSupMeme = document.getElementById("texto-del-meme-superior");
 
-textoSuperior.addEventListener("input", function() {
+textoSuperior.addEventListener("input", function () {
   textoSupMeme.textContent = textoSuperior.value;
 });
 
-// Ocultar el texto superior 
+// Ocultar el texto superior
 
 let ocultarTextoS = document.getElementById("sin-texto-superior");
 let textoSMeme = document.getElementById("texto-del-meme-superior");
 
-ocultarTextoS.addEventListener("change", function() {
-  textoSMeme.style.display = ocultarTextoS.checked ? "none" : "block"
+ocultarTextoS.addEventListener("change", function () {
+  textoSMeme.style.display = ocultarTextoS.checked ? "none" : "block";
 });
 
 // Texto inferior
@@ -237,7 +238,7 @@ ocultarTextoS.addEventListener("change", function() {
 let textoInferior = document.getElementById("texto-inf");
 let textoInfMeme = document.getElementById("texto-del-meme-inferior");
 
-textoInferior.addEventListener("input", function() {
+textoInferior.addEventListener("input", function () {
   textoInfMeme.textContent = textoInferior.value;
 });
 
@@ -246,6 +247,57 @@ textoInferior.addEventListener("input", function() {
 let ocultarTextoI = document.getElementById("sin-texto-inferior");
 let textoIMeme = document.getElementById("texto-del-meme-inferior");
 
-ocultarTextoI.addEventListener("change", function() {
-  textoIMeme.style.display = ocultarTextoI.checked ? "none" : "block"
-})
+ocultarTextoI.addEventListener("change", function () {
+  textoIMeme.style.display = ocultarTextoI.checked ? "none" : "block";
+});
+
+// Fuentes de letra
+
+const textoSup = document.getElementById("texto-del-meme-superior");
+const textoInf = document.getElementById("texto-del-meme-inferior");
+const fuenteDeFamilia = document.getElementById("fuente-de-familia");
+
+const cambiarFuente = (e) => {
+  const fuenteSeleccionada = e.target.value;
+  textoSup.style.fontFamily = fuenteSeleccionada;
+  textoInf.style.fontFamily = fuenteSeleccionada;
+};
+
+fuenteDeFamilia.addEventListener("change", cambiarFuente);
+
+// Tamaño de fuentes
+
+let tamañoDeFuente = document.getElementById("tamaño-de-fuente");
+
+let tamañoFuente = (e) => {
+  let tamañoSeleccionado = tamañoDeFuente.value;
+  textoSup.style.fontSize = tamañoSeleccionado + "px";
+  textoInf.style.fontSize = tamañoSeleccionado + "px";
+};
+
+tamañoDeFuente.addEventListener("input", tamañoFuente);
+
+// Alineacion
+
+let ajusteIzq = document.getElementById("btn-izq-ajuste");
+let ajustCentro = document.getElementById("btn-centro-ajuste");
+let ajusteDer = document.getElementById("btn-der-ajuste");
+
+let posicionIzq = () => {
+  textoSup.style.textAlign = "left";
+  textoInf.style.textAlign = "left";
+};
+
+let posicionCentro = () => {
+  textoSup.style.textAlign = "center";
+  textoInf.style.textAlign = "center";
+};
+
+let posicionDer = () => {
+  textoSup.style.textAlign = "right";
+  textoInf.style.textAlign = "right";
+};
+
+ajusteIzq.addEventListener("click", posicionIzq);
+ajustCentro.addEventListener("click", posicionCentro);
+ajusteDer.addEventListener("click", posicionDer);

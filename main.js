@@ -159,3 +159,57 @@ inputColor.addEventListener("input", function () {
 
   colorSpan.style.setProperty("--circle-color", nuevoColor);
 });
+
+// Deslizadores
+
+let brillo = 1;
+let opacidad = 1;
+let contraste = 100;
+let desenfoque = 0;
+let escalas = 0;
+let sepia = 0;
+let hue = 0;
+let saturado = 100;
+let negativo = 0.1;
+
+function mezclaDeColores() {
+  brillo = document.getElementById("deslizador-de-brillo").value;
+  opacidad = document.getElementById("deslizador-de-opacidad").value;
+  contraste = document.getElementById("deslizador-de-contraste").value;
+  desenfoque = document.getElementById("deslizador-de-desenfoque").value;
+  escalas = document.getElementById("deslizador-de-escalas").value;
+  sepia = document.getElementById("deslizador-de-sepia").value;
+  hue = document.getElementById("deslizador-de-hue").value;
+  saturado = document.getElementById("deslizador-de-saturado").value;
+  negativo = document.getElementById("deslizador-de-negativo").value;
+
+  let filtros = `brightness(${brillo}) opacity(${opacidad}) contrast(${contraste}%) blur(${desenfoque}px) grayscale(${escalas}%) sepia(${sepia}%) hue-rotate(${hue}deg) saturate(${saturado}%) invert(${negativo})`;
+
+  document.querySelector(".imagen-meme").style.filter = filtros;
+};
+
+let deslizadores = document.querySelectorAll(".filtro-deslizador");
+deslizadores.forEach(function (deslizador) {
+  deslizador.addEventListener("input", mezclaDeColores);
+});
+
+mezclaDeColores();
+
+// Boton para restablecer los filtros
+
+document.querySelector(".boton-restablecedor").addEventListener("click", restablecerFiltros);
+
+function restablecerFiltros() {
+
+    document.getElementById("deslizador-de-brillo").value = 1;
+    document.getElementById("deslizador-de-opacidad").value = 1;
+    document.getElementById("deslizador-de-contraste").value = 100;
+    document.getElementById("deslizador-de-desenfoque").value = 0;
+    document.getElementById("deslizador-de-escalas").value = 0;
+    document.getElementById("deslizador-de-sepia").value = 0;
+    document.getElementById("deslizador-de-hue").value = 0;
+    document.getElementById("deslizador-de-saturado").value = 100;
+    document.getElementById("deslizador-de-negativo").value = 0.1;
+  
+  mezclaDeColores();
+}

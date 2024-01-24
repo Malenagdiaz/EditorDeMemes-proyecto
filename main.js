@@ -99,3 +99,29 @@ document.querySelector(".boton-de-fuente").addEventListener("click", () => {
   document.querySelector(".editor-de-texto").style.display = "block";
   document.querySelector(".editor-de-imagen").style.display = "none";
 });
+
+// Agregar imagen por ARCHIVO o URL
+
+const imagenUrl = document.getElementById("url-de-imagen");
+const entradaArchivo = document.getElementById("agrega-archivo");
+const imagenMemeElemento = document.querySelector(".imagen-meme");
+
+imagenUrl.addEventListener("input", function () {
+    const urlImagen = imagenUrl.value;
+    actualizarImagenMeme(urlImagen);
+});
+
+entradaArchivo.addEventListener("change", function () {
+    const archivo = entradaArchivo.files[0];
+    if (archivo) {
+        const urlImagen = URL.createObjectURL(archivo);
+        actualizarImagenMeme(urlImagen);
+    }
+});
+
+function actualizarImagenMeme(urlImagen) {
+    const contenedorMemeElemento = document.querySelector(".contenedor-de-meme");
+    const imagenMeme = document.querySelector(".imagen-meme");
+
+    imagenMeme.src = urlImagen;
+};

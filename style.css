@@ -84,38 +84,57 @@ main {
     align-items: center;
     text-align: center;
     height: 80vh;
+    padding: 15px;
 }
 
 .contenedor-de-meme {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color: white;
-    margin: 15px;
-    width: 45vw;
+    width: 570px;
+    height: 475px;
     box-shadow: 0 0 15px #1b003a;
+    position: relative;
 }
 
 .texto-superior,
 .texto-inferior {
-    margin: 15px;
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+    position: absolute;
     font-family: 'Times New Roman', Times, serif;
     font-size: 1.25rem;
+    background-color: white;
+}
+
+.texto-superior {
+    top: 0px; 
+}
+
+.texto-inferior {
+    bottom: 0px;
 }
 
 .imagen-meme {
     width: 100%;
-    height: auto;
-    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
+
 
 .boton-de-descarga {
     border: 1px solid #1b003a;
     border-radius: 8px;
     background: linear-gradient(to right, #af7ead, #1b003a);
     color: #1b003a;
-    padding: 7px 15px;
+    padding: 6px 9px;;
     font-size: 1.125rem;
     font-family: 'Amatic SC', sans-serif;
     font-weight: bolder;
     box-shadow: 0 0 10px #1b003a;
+    margin-top: 8px;
 
 }
 

@@ -349,3 +349,44 @@ checkboxTransparente.addEventListener("change", function () {
     textoIf.style.backgroundColor = "";  
   }
 });
+
+// Contorno
+
+const ningunContorno = document.getElementById("btn-ningun-contorno");
+const contornoClaro = document.getElementById("btn-claro-contorno");
+const contornoOscuro = document.getElementById("btn-oscuro-contorno");
+
+ningunContorno.addEventListener("click", function() {
+  textoSup.style.textShadow = 'none';
+  textoInf.style.textShadow ='none';
+});
+
+contornoClaro.addEventListener("click", function() {
+  textoSup.style.textShadow = '1px 1px 2px #FFFFFF';
+  textoInf.style.textShadow = '1px 1px 2px #FFFFFF';
+});
+
+contornoOscuro.addEventListener("click", function() {
+  textoSup.style.textShadow = '1px 1px 2px #000000';
+  textoInf.style.textShadow = '1px 1px 2px #000000';
+})
+
+// Espaciado
+
+let espaciadoTexto = document.getElementById("espaciado");
+
+espaciadoTexto.addEventListener("input", function() {
+  let espaciado = espaciadoTexto.value + "px";
+  textoSup.style.letterSpacing = espaciado;
+  textoInf.style.letterSpacing = espaciado;
+});
+
+// Interlineado
+
+let interlineadoTexto = document.getElementById("select-interlineado");
+
+interlineadoTexto.addEventListener("change", function() {
+  let interlineado = interlineadoTexto.value;
+  textoSup.style.lineHeight = interlineado;
+  textoInf.style.lineHeight = interlineado;
+})

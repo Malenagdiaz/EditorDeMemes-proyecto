@@ -160,6 +160,43 @@ inputColor.addEventListener("input", function () {
   colorSpan.style.setProperty("--circle-color", nuevoColor);
 });
 
+// Mezcla de colores
+
+const mezclaDeColores = document.getElementById("mezcla-de-colores");
+
+function coloresMezclados() {
+  const mezcla = mezclaDeColores.value;
+
+  switch (mezcla) {
+    case "NINGUNO":
+      imagenMemeElemento.style.filter = "unset";
+      break;
+    case "BRILLO":
+      imagenMemeElemento.style.filter = "brightness(1.2)";
+      break;
+    case "DESENFOQUE":
+      imagenMemeElemento.style.filter = "blur(5px)";
+      break;
+    case "ACLARAR":
+      imagenMemeElemento.style.filter = "brightness(1.3)";
+      break;
+    case "OSCURECER":
+      imagenMemeElemento.style.filter = "brightness(0.2)";
+      break;
+    case "CONTRASTE":
+      imagenMemeElemento.style.filter = "contrast(1.5)";
+      break;
+    case "ESCALA-DE-GRISES":
+      imagenMemeElemento.style.filter = "grayscale(2)";
+      break;
+    case "MULTIPLICAR":
+      imagenMemeElemento.style.filter = "multiply(2)";
+      break;
+  }
+}
+
+mezclaDeColores.addEventListener("change", coloresMezclados);
+
 // Deslizadores
 
 let brillo = 1;
@@ -337,7 +374,7 @@ fondoFuente.addEventListener("input", function () {
 // Fondo transparente
 
 let checkboxTransparente = document.getElementById("checkbox-transparente");
-let textoSp= document.getElementById("texto-del-meme-superior");
+let textoSp = document.getElementById("texto-del-meme-superior");
 let textoIf = document.getElementById("texto-del-meme-inferior");
 
 checkboxTransparente.addEventListener("change", function () {
@@ -345,8 +382,8 @@ checkboxTransparente.addEventListener("change", function () {
     textoSp.style.backgroundColor = "transparent";
     textoIf.style.backgroundColor = "transparent";
   } else {
-    textoSp.style.backgroundColor = "";  
-    textoIf.style.backgroundColor = "";  
+    textoSp.style.backgroundColor = "";
+    textoIf.style.backgroundColor = "";
   }
 });
 
@@ -356,26 +393,26 @@ const ningunContorno = document.getElementById("btn-ningun-contorno");
 const contornoClaro = document.getElementById("btn-claro-contorno");
 const contornoOscuro = document.getElementById("btn-oscuro-contorno");
 
-ningunContorno.addEventListener("click", function() {
-  textoSup.style.textShadow = 'none';
-  textoInf.style.textShadow ='none';
+ningunContorno.addEventListener("click", function () {
+  textoSup.style.textShadow = "none";
+  textoInf.style.textShadow = "none";
 });
 
-contornoClaro.addEventListener("click", function() {
-  textoSup.style.textShadow = '1px 1px 2px #FFFFFF';
-  textoInf.style.textShadow = '1px 1px 2px #FFFFFF';
+contornoClaro.addEventListener("click", function () {
+  textoSup.style.textShadow = "1px 1px 2px #FFFFFF";
+  textoInf.style.textShadow = "1px 1px 2px #FFFFFF";
 });
 
-contornoOscuro.addEventListener("click", function() {
-  textoSup.style.textShadow = '1px 1px 2px #000000';
-  textoInf.style.textShadow = '1px 1px 2px #000000';
-})
+contornoOscuro.addEventListener("click", function () {
+  textoSup.style.textShadow = "1px 1px 2px #000000";
+  textoInf.style.textShadow = "1px 1px 2px #000000";
+});
 
 // Espaciado
 
 let espaciadoTexto = document.getElementById("espaciado");
 
-espaciadoTexto.addEventListener("input", function() {
+espaciadoTexto.addEventListener("input", function () {
   let espaciado = espaciadoTexto.value + "px";
   textoSup.style.letterSpacing = espaciado;
   textoInf.style.letterSpacing = espaciado;
@@ -385,8 +422,8 @@ espaciadoTexto.addEventListener("input", function() {
 
 let interlineadoTexto = document.getElementById("select-interlineado");
 
-interlineadoTexto.addEventListener("change", function() {
+interlineadoTexto.addEventListener("change", function () {
   let interlineado = interlineadoTexto.value;
   textoSup.style.lineHeight = interlineado;
   textoInf.style.lineHeight = interlineado;
-})
+});

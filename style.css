@@ -111,7 +111,7 @@ main {
 }
 
 .texto-superior {
-    top: 0px; 
+    top: 0px;
 }
 
 .texto-inferior {
@@ -130,7 +130,8 @@ main {
     border-radius: 8px;
     background: linear-gradient(to right, #af7ead, #1b003a);
     color: #1b003a;
-    padding: 6px 9px;;
+    padding: 6px 9px;
+    ;
     font-size: 1.125rem;
     font-family: 'Amatic SC', sans-serif;
     font-weight: bolder;
@@ -399,7 +400,7 @@ input[type="color"] {
     flex-grow: 1;
 }
 
-.cerrar-menu {
+.cerrar-menu-txt {
     border: none;
     background: none;
     padding: 5px 4px;
@@ -408,12 +409,12 @@ input[type="color"] {
     color: #1b003a;
 }
 
-.cerrar-menu:hover {
+.cerrar-menu-txt:hover {
     color: #e7cfef;
     background-color: #3b113b;
 }
 
-.cerrar-menu {
+.cerrar-menu-txt {
     display: none;
 }
 
@@ -639,4 +640,92 @@ span#color-fondo-texto::before {
 
 .editor-de-texto {
     display: none;
+}
+
+/* Diseño RESPONSIVO */
+
+@media (max-width: 980px) {
+
+    /* body */
+    body {
+        display: flex;
+    }
+
+    /* Contenedor */
+    .meme-contenedor {
+        width: 100%;
+    }
+
+    /* Header */
+    header {
+        width: 100%;
+        height: 20vh;
+    }
+
+    .titulo-principal {
+        font-size: 1.25rem;
+        padding: 15px;
+    }
+
+    .boton-de-imagen,
+    .boton-de-fuente,
+    .boton-de-modo-oscuro,
+    .boton-de-modo-claro {
+        font-size: 0.813rem;
+    }
+
+    /* MAIN */
+    main {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .contenedor-de-meme {
+        width: 350px;
+        height: 350px;
+    }
+
+    .boton-de-descarga {
+        margin-top: 20px;
+    }
+
+    /* Aside IMAGEN */
+    .editor-de-imagen {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+
+    .cerrar-menu{
+        display: inline-block;
+    }
+
+    .colores-contenedor{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    /* Aside TEXTO */
+    .editor-de-texto {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+
+    .cerrar-menu-txt{
+        display: inline-block;
+    }
+
+    .color-contenedor{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .opcion-checkbox{
+        text-align: center;
+    }
 }

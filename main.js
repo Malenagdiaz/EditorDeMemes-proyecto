@@ -18,6 +18,9 @@ const deslizadoresLabel = document.querySelectorAll(
 const labelChecks = document.querySelectorAll(
   "#ocultar-texto-sup, #ocultar-texto-inf, #fondo-transparente"
 );
+// Botones de PANELES IMG TXT de DISEÑO RESPONSIVO
+const btnCerrarMenu = document.querySelector(".cerrar-menu");
+const btnCerrarMenuTxt = document.querySelector(".cerrar-menu-txt");
 
 function cambioDeEstilo() {
   botonesDelHeader.forEach((button) => {
@@ -53,6 +56,10 @@ function cambioDeEstilo() {
   labelChecks.forEach((label) => {
     label.style.color = volverModoOscuro ? "#dac9df" : "#dac9df";
   });
+
+  // Agregue para que los botones de cerrar Panel IMG TXT se vean en MODO OSCURO en DISEÑO RESPONSIVO
+  btnCerrarMenu.style.color = volverModoOscuro ? '#dac9df' : '#1b003a';
+  btnCerrarMenuTxt.style.color = volverModoOscuro ? '#dac9df' : '#1b003a';
 
   body.classList.toggle("modo-oscuro", volverModoOscuro);
   body.classList.toggle("modo-claro", !volverModoOscuro);
@@ -427,3 +434,34 @@ interlineadoTexto.addEventListener("change", function () {
   textoSup.style.lineHeight = interlineado;
   textoInf.style.lineHeight = interlineado;
 });
+
+// Abrir y cerrar los paneles editores @media
+
+// Panel de IMAGEN
+const botonDeImg = document.querySelector(".boton-de-imagen");
+const cerrarMenu = document.querySelector(".cerrar-menu");
+
+botonDeImg.addEventListener("click", function() {
+  asideEditorImagen.style.display = "block";
+});
+
+cerrarMenu.addEventListener("click", function() {
+  asideEditorImagen.style.display = "none";
+});
+
+// Panel de TEXTO
+
+const botonDeTxt = document.querySelector(".boton-de-fuente");
+const cerrarMenuTxt = document.querySelector(".cerrar-menu-txt")
+
+botonDeTxt.addEventListener("click", function() {
+  asideEditorTexto.style.display = "block";
+});
+
+cerrarMenuTxt.addEventListener("click", function() {
+  asideEditorTexto.style.display = "none";
+});
+
+
+
+

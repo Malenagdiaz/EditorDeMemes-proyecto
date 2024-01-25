@@ -301,3 +301,51 @@ let posicionDer = () => {
 ajusteIzq.addEventListener("click", posicionIzq);
 ajustCentro.addEventListener("click", posicionCentro);
 ajusteDer.addEventListener("click", posicionDer);
+
+// Color de fuente
+
+const fuenteInput = document.getElementById("color-fuente");
+const fuenteSpan = document.getElementById("color-texto");
+const fondoSpan = document.getElementById("color-fondo-texto");
+
+fuenteInput.addEventListener("input", function () {
+  let colorFuente = fuenteInput.value;
+
+  fuenteSpan.style.color = colorFuente;
+  fuenteSpan.textContent = colorFuente;
+  fuenteSpan.style.setProperty("--circle-color", colorFuente);
+
+  textoSup.style.color = colorFuente;
+  textoInf.style.color = colorFuente;
+});
+
+// Color de fondo fuente
+
+const fondoFuente = document.getElementById("fondo-fuente");
+
+fondoFuente.addEventListener("input", function () {
+  let colorFondo = fondoFuente.value;
+
+  fondoSpan.style.color = colorFondo;
+  fondoSpan.textContent = colorFondo;
+  fondoSpan.style.setProperty("--circle-color", colorFondo);
+
+  textoSup.style.backgroundColor = colorFondo;
+  textoInf.style.backgroundColor = colorFondo;
+});
+
+// Fondo transparente
+
+let checkboxTransparente = document.getElementById("checkbox-transparente");
+let textoSp= document.getElementById("texto-del-meme-superior");
+let textoIf = document.getElementById("texto-del-meme-inferior");
+
+checkboxTransparente.addEventListener("change", function () {
+  if (checkboxTransparente.checked) {
+    textoSp.style.backgroundColor = "transparent";
+    textoIf.style.backgroundColor = "transparent";
+  } else {
+    textoSp.style.backgroundColor = "";  
+    textoIf.style.backgroundColor = "";  
+  }
+});

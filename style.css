@@ -558,11 +558,11 @@ span::before {
 }
 
 span#color-texto::before {
-    background-color: #FFFFFF;
+    background-color: var(--circle-color, #FFFFFF);
 }
 
 span#color-fondo-texto::before {
-    background-color: #FFFFFF;
+    background-color: var(--circle-color, #FFFFFF);
 }
 
 /* CONTORNO DE FUENTE */

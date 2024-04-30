@@ -16,15 +16,21 @@ En esta imagen, podemos ver la apariencia inicial de la página, en modo claro. 
 
 En el modo oscuro, presento el panel de texto, donde se puede agregar texto superior e inferior al meme. Incluyen opciones para cambiar la fuente, agregar color, color de fondo, contorno e incluso establecer el fondo como transparente.
 
-## Ejemplo con imagen desde URL
+## Ejemplo con imagen desde ARCHIVOS
 
-![ImagenURL](Imagenes/memeimagen.png)
+![ImagenArchivo](Imagenes/memeimagen.png)
 
-Podemos ver que con solo una URL se agrega una imagen al meme. Y podemos apreciar la aplicacion de filtros.😊
+Podemos ver que con solo una imagen traída desde nuestros archivos se agrega una imagen al meme. Y podemos apreciar la aplicacion de filtros.😊
 
 ![TextoMeme](Imagenes/memetexto.png)
 
 Acá vemos como añadimos el texto al meme. Jugamos con la fuente, color, fondo, contorno, espaciado e interlineado.😋
+
+## Ejemplo con imagen desde URL
+
+![UrlMeme](Imagenes/urlmeme.png)
+
+Aquí te muestro un meme hecho vía URL. Podemos agregar una imagen tanto por URL como por ARCHIVOS.✨
 
 # En conclusión
 

@@ -1,467 +1,354 @@
-// Cambiando de MODO CLARO a MODO OSCURO
+// Cambia el MODO CLARO a MODO OSCURO
 
-let volverModoOscuro = false;
+const $ = (selector) => document.querySelector(selector);
 
-const botonDeModoOscuro = document.querySelector(".boton-de-modo-oscuro");
-const botonDeModoClaro = document.querySelector(".boton-de-modo-claro");
-const body = document.body;
-const header = document.querySelector("header");
-const asideEditorImagen = document.querySelector(".editor-de-imagen");
-const asideEditorTexto = document.querySelector(".editor-de-texto");
-const main = document.querySelector("main");
-const contenedorMeme = document.querySelector(".contenedor-de-meme");
-const botonesDelHeader = document.querySelectorAll("header button");
-const titulosH3 = document.querySelectorAll("h3");
-const deslizadoresLabel = document.querySelectorAll(
-  ".brillo-deslizador, .opacidad-deslizador, .constraste-deslizador, .desenfoque-deslizador, .escala-de-grises-deslizador, .sepia-deslizador, .hue-deslizador, .saturado-deslizador, .negativo-deslizador"
-);
-const labelChecks = document.querySelectorAll(
-  "#ocultar-texto-sup, #ocultar-texto-inf, #fondo-transparente"
-);
-// Botones de PANELES IMG TXT de DISEÑO RESPONSIVO
-const btnCerrarMenu = document.querySelector(".cerrar-menu");
-const btnCerrarMenuTxt = document.querySelector(".cerrar-menu-txt");
-
-function cambioDeEstilo() {
-  botonesDelHeader.forEach((button) => {
-    if (volverModoOscuro) {
-      button.style.color = "#dac9df";
-      button.style.backgroundColor = "transparent";
-    } else {
-      button.style.color = "#1b003a";
-      button.style.backgroundColor = "transparent";
-    }
+$(".boton-de-modo-claro").addEventListener("click", () => {
+  $("header").style.backgroundColor = "#af7ead";
+  $("main").style.backgroundColor = "#f5dff5";
+  $(".editor-de-imagen").style.backgroundColor = "#b988b8";
+  $(".editor-de-texto").style.backgroundColor = "#b988b8";
+  document.querySelectorAll("h3").forEach((h3) => {
+    h3.style.color = "#1b003a";
   });
-
-  asideEditorImagen.style.backgroundColor = volverModoOscuro
-    ? "#230443"
-    : "#b988b8";
-
-  asideEditorTexto.style.backgroundColor = volverModoOscuro
-    ? "#230443"
-    : "#b988b8";
-
-  titulosH3.forEach((h3) => {
-    h3.style.color = volverModoOscuro ? "#dac9df" : "#dac9df";
+  document
+    .querySelectorAll(
+      ".brillo-deslizador, .opacidad-deslizador, .constraste-deslizador, .desenfoque-deslizador, .escala-de-grises-deslizador, .sepia-deslizador, .hue-deslizador, .saturado-deslizador, .negativo-deslizador"
+    )
+    .forEach((elemento) => {
+      elemento.style.color = "#1b003a";
+    });
+  document
+    .querySelectorAll(
+      "#ocultar-texto-sup, #ocultar-texto-inf, #fondo-transparente"
+    )
+    .forEach((elemento) => {
+      elemento.style.color = "#1b003a";
+    });
+  document.querySelectorAll(".headerBtn").forEach((btn) => {
+    btn.style.color = "#1b003a";
+    btn.classList.remove("modo-oscuro");
   });
+  $(".cerrar-menu").style.color = "#1b003a";
+  $(".cerrar-menu-txt").style.color = "#1b003a";
+  $(".contenedor-de-meme").style.boxShadow = "0 0 15px #1b003a";
+  $(".boton-de-modo-oscuro").style.display = "block";
+  $(".boton-de-modo-claro").style.display = "none";
+});
 
-  contenedorMeme.style.boxShadow = volverModoOscuro
-    ? "0 0 15px #f5dff5"
-    : "0 0 15px #1b003a";
-
-  deslizadoresLabel.forEach((label) => {
-    label.style.color = volverModoOscuro ? "#dac9df" : "#dac9df";
+$(".boton-de-modo-oscuro").addEventListener("click", () => {
+  $("header").style.backgroundColor = "#1b003a";
+  $("main").style.backgroundColor = "#3d0b60";
+  $(".editor-de-imagen").style.backgroundColor = "#230443";
+  $(".editor-de-texto").style.backgroundColor = "#230443";
+  document.querySelectorAll("h3").forEach((h3) => {
+    h3.style.color = "#dac9df";
   });
-
-  labelChecks.forEach((label) => {
-    label.style.color = volverModoOscuro ? "#dac9df" : "#dac9df";
+  document
+    .querySelectorAll(
+      ".brillo-deslizador, .opacidad-deslizador, .constraste-deslizador, .desenfoque-deslizador, .escala-de-grises-deslizador, .sepia-deslizador, .hue-deslizador, .saturado-deslizador, .negativo-deslizador"
+    )
+    .forEach((elemento) => {
+      elemento.style.color = "#dac9df";
+    });
+  document
+    .querySelectorAll(
+      "#ocultar-texto-sup, #ocultar-texto-inf, #fondo-transparente"
+    )
+    .forEach((elemento) => {
+      elemento.style.color = "#dac9df";
+    });
+  document.querySelectorAll(".headerBtn").forEach((btn) => {
+    btn.style.color = "#dac9df";
+    btn.classList.add("modo-oscuro");
   });
-
-  // Agregue para que los botones de cerrar Panel IMG TXT se vean en MODO OSCURO en DISEÑO RESPONSIVO
-  btnCerrarMenu.style.color = volverModoOscuro ? '#dac9df' : '#1b003a';
-  btnCerrarMenuTxt.style.color = volverModoOscuro ? '#dac9df' : '#1b003a';
-
-  body.classList.toggle("modo-oscuro", volverModoOscuro);
-  body.classList.toggle("modo-claro", !volverModoOscuro);
-}
-
-botonDeModoOscuro.addEventListener("click", function () {
-  if (!volverModoOscuro) {
-    volverModoOscuro = true;
-    cambioDeEstilo();
-
-    header.style.backgroundColor = "#1b003a";
-    asideEditorImagen.style.backgroundColor = "#230443";
-    asideEditorTexto.style.backgroundColor = "#230443";
-    main.style.backgroundColor = "#3d0b60";
-    contenedorMeme.style.boxShadow = "0 0 15px #f5dff5";
-    botonDeModoOscuro.style.display = "none";
-    botonDeModoClaro.style.display = "block";
-  }
+  $(".cerrar-menu").style.color = "#dac9df";
+  $(".cerrar-menu-txt").style.color = "#dac9df";
+  $(".contenedor-de-meme").style.boxShadow = "0 0 15px #f5dff5";
+  $(".boton-de-modo-oscuro").style.display = "none";
+  $(".boton-de-modo-claro").style.display = "block";
 });
 
-botonDeModoClaro.addEventListener("click", function () {
-  if (volverModoOscuro) {
-    volverModoOscuro = false;
-    cambioDeEstilo();
+// Cambia de panel
 
-    header.style.backgroundColor = "#af7ead";
-    asideEditorImagen.style.backgroundColor = "#b988b8";
-    asideEditorTexto.style.backgroundColor = "#b988b8";
-    main.style.backgroundColor = "#f5dff5";
-    contenedorMeme.style.boxShadow = "0 0 15px #1b003a";
-    botonDeModoOscuro.style.display = "block";
-    botonDeModoClaro.style.display = "none";
-  }
+$(".botonImg").addEventListener("click", () => {
+  $(".editor-de-imagen").style.display = "block";
+  $(".editor-de-texto").style.display = "none";
 });
 
-// Abrir y cerrar EditorDeImagen y EditorDeTexto
-
-document.querySelector(".boton-de-imagen").addEventListener("click", () => {
-  document.querySelector(".editor-de-imagen").style.display = "block";
-  document.querySelector(".editor-de-texto").style.display = "none";
+$(".botonFuente").addEventListener("click", () => {
+  $(".editor-de-imagen").style.display = "none";
+  $(".editor-de-texto").style.display = "block";
 });
 
-document.querySelector(".boton-de-fuente").addEventListener("click", () => {
-  document.querySelector(".editor-de-texto").style.display = "block";
-  document.querySelector(".editor-de-imagen").style.display = "none";
+// FUNCIONES PARA PANEL IMAGEN
+// Agrega la imagen via URL o Archivo
+
+$(".url-de-imagen").addEventListener("input", () => {
+  const urlImagen = $(".url-de-imagen").value;
+  actualizarImagen(urlImagen);
 });
 
-// Agregar imagen por ARCHIVO o URL
-
-const imagenUrl = document.getElementById("url-de-imagen");
-const entradaArchivo = document.getElementById("agrega-archivo");
-const imagenMemeElemento = document.querySelector(".imagen-meme");
-
-imagenUrl.addEventListener("input", function () {
-  const urlImagen = imagenUrl.value;
-  actualizarImagenMeme(urlImagen);
-});
-
-entradaArchivo.addEventListener("change", function () {
-  const archivo = entradaArchivo.files[0];
+$("#agrega-archivo").addEventListener("change", () => {
+  const archivo = $("#agrega-archivo").files[0];
   if (archivo) {
     const urlImagen = URL.createObjectURL(archivo);
-    actualizarImagenMeme(urlImagen);
+    actualizarImagen(urlImagen);
   }
 });
 
-function actualizarImagenMeme(urlImagen) {
-  const contenedorMemeElemento = document.querySelector(".contenedor-de-meme");
-  const imagenMeme = document.querySelector(".imagen-meme");
-
-  imagenMeme.src = urlImagen;
+function actualizarImagen(urlImagen) {
+  $(".imagen-meme").src = urlImagen;
 }
 
-// Boton de descarga
+// Descarga la imagen
 
-const botonDescarga = document.querySelector(".boton-de-descarga");
-const memeContenedor = document.querySelector(".contenedor-de-meme");
-
-botonDescarga.addEventListener("click", () => {
-  domtoimage.toBlob(memeContenedor).then((blob) => {
+$(".boton-de-descarga").addEventListener("click", () => {
+  domtoimage.toBlob($(".contenedor-de-meme")).then((blob) => {
     window.saveAs(blob, "mi-meme.png");
   });
 });
 
-// Color para el fondo IMG
+// Color para el fondo de la Imagen
 
-const colordeInput = document.getElementById("color-input");
-const fondo = document.querySelector(".contenedor-de-meme");
-
-colordeInput.addEventListener("input", () => {
-  console.log(colordeInput.value);
-  fondo.style.backgroundColor = colordeInput.value;
-});
-
-let inputColor = document.getElementById("color-input");
-let colorSpan = document.getElementById("color-de-fondo");
-
-inputColor.addEventListener("input", function () {
-  let nuevoColor = inputColor.value;
-
-  colorSpan.style.color = nuevoColor;
-
-  colorSpan.textContent = nuevoColor;
-
-  colorSpan.style.setProperty("--circle-color", nuevoColor);
+$("#color-input").addEventListener("input", () => {
+  $(".contenedor-de-meme").style.backgroundColor = $("#color-input").value;
+  const nuevoColor = $("#color-input").value;
+  $("#color-de-fondo").style.color = nuevoColor;
+  $("#color-de-fondo").textContent = nuevoColor;
+  $("#color-de-fondo").style.setProperty("--circle-color", nuevoColor);
 });
 
 // Mezcla de colores
 
-const mezclaDeColores = document.getElementById("mezcla-de-colores");
-
-function coloresMezclados() {
-  const mezcla = mezclaDeColores.value;
+$("#mezcla-de-colores").addEventListener("change", () => {
+  const mezcla = $("#mezcla-de-colores").value;
 
   switch (mezcla) {
     case "NINGUNO":
-      imagenMemeElemento.style.filter = "unset";
+      $(".imagen-meme").style.filter = "none";
       break;
     case "BRILLO":
-      imagenMemeElemento.style.filter = "brightness(1.2)";
+      $(".imagen-meme").style.filter = "brightness(1.8)";
       break;
     case "DESENFOQUE":
-      imagenMemeElemento.style.filter = "blur(5px)";
+      $(".imagen-meme").style.filter = "blur(5px)";
       break;
     case "ACLARAR":
-      imagenMemeElemento.style.filter = "brightness(1.3)";
+      $(".imagen-meme").style.filter = "brightness(1.3)";
       break;
     case "OSCURECER":
-      imagenMemeElemento.style.filter = "brightness(0.2)";
+      $(".imagen-meme").style.filter = "brightness(0.2)";
       break;
     case "CONTRASTE":
-      imagenMemeElemento.style.filter = "contrast(1.5)";
+      $(".imagen-meme").style.filter = "contrast(1.8)";
       break;
     case "ESCALA-DE-GRISES":
-      imagenMemeElemento.style.filter = "grayscale(2)";
+      $(".imagen-meme").style.filter = "grayscale(2)";
       break;
     case "MULTIPLICAR":
-      imagenMemeElemento.style.filter = "multiply(2)";
+      $(".imagen-meme").style.filter = "multiply(2)";
       break;
   }
-}
-
-mezclaDeColores.addEventListener("change", coloresMezclados);
+});
 
 // Deslizadores
 
-let brillo = 1;
-let opacidad = 1;
-let contraste = 100;
-let desenfoque = 0;
-let escalas = 0;
-let sepia = 0;
-let hue = 0;
-let saturado = 100;
-let negativo = 0.1;
-
 function filtrosDeslizadores() {
-  brillo = document.getElementById("deslizador-de-brillo").value;
-  opacidad = document.getElementById("deslizador-de-opacidad").value;
-  contraste = document.getElementById("deslizador-de-contraste").value;
-  desenfoque = document.getElementById("deslizador-de-desenfoque").value;
-  escalas = document.getElementById("deslizador-de-escalas").value;
-  sepia = document.getElementById("deslizador-de-sepia").value;
-  hue = document.getElementById("deslizador-de-hue").value;
-  saturado = document.getElementById("deslizador-de-saturado").value;
-  negativo = document.getElementById("deslizador-de-negativo").value;
+  const brillo = $("#deslizador-de-brillo").value;
+  const opacidad = $("#deslizador-de-opacidad").value;
+  const contraste = $("#deslizador-de-contraste").value;
+  const desenfoque = $("#deslizador-de-desenfoque").value;
+  const escalas = $("#deslizador-de-escalas").value;
+  const sepia = $("#deslizador-de-sepia").value;
+  const hue = $("#deslizador-de-hue").value;
+  const saturado = $("#deslizador-de-saturado").value;
+  const negativo = $("#deslizador-de-negativo").value;
 
-  let filtros = `brightness(${brillo}) opacity(${opacidad}) contrast(${contraste}%) blur(${desenfoque}px) grayscale(${escalas}%) sepia(${sepia}%) hue-rotate(${hue}deg) saturate(${saturado}%) invert(${negativo})`;
-
-  document.querySelector(".imagen-meme").style.filter = filtros;
+  const filtros = `brightness(${brillo}) opacity(${opacidad}) contrast(${contraste}%) blur(${desenfoque}px) grayscale(${escalas}%) sepia(${sepia}%) hue-rotate(${hue}deg) saturate(${saturado}%) invert(${negativo})`;
+  $(".imagen-meme").style.filter = filtros;
 }
 
-let deslizadores = document.querySelectorAll(".filtro-deslizador");
-deslizadores.forEach(function (deslizador) {
+document.querySelectorAll(".filtro-deslizador").forEach((deslizador) => {
   deslizador.addEventListener("input", filtrosDeslizadores);
 });
 
 filtrosDeslizadores();
 
-// Boton para restablecer los filtros
+// Restablece los filtros
 
-document
-  .querySelector(".boton-restablecedor")
-  .addEventListener("click", restablecerFiltros);
+$(".boton-restablecedor").addEventListener("click", restablecerFiltros);
 
 function restablecerFiltros() {
-  document.getElementById("deslizador-de-brillo").value = 1;
-  document.getElementById("deslizador-de-opacidad").value = 1;
-  document.getElementById("deslizador-de-contraste").value = 100;
-  document.getElementById("deslizador-de-desenfoque").value = 0;
-  document.getElementById("deslizador-de-escalas").value = 0;
-  document.getElementById("deslizador-de-sepia").value = 0;
-  document.getElementById("deslizador-de-hue").value = 0;
-  document.getElementById("deslizador-de-saturado").value = 100;
-  document.getElementById("deslizador-de-negativo").value = 0.1;
+  $("#deslizador-de-brillo").value = 1;
+  $("#deslizador-de-opacidad").value = 1;
+  $("#deslizador-de-contraste").value = 100;
+  $("#deslizador-de-desenfoque").value = 0;
+  $("#deslizador-de-escalas").value = 0;
+  $("#deslizador-de-sepia").value = 0;
+  $("#deslizador-de-hue").value = 0;
+  $("#deslizador-de-saturado").value = 100;
+  $("#deslizador-de-negativo").value = 0;
 
   filtrosDeslizadores();
 }
 
-// Texto superior
+// FUNCIONES PARA PANEL TEXTO
+// Texto SUPERIOR
 
-let textoSuperior = document.getElementById("texto-sup");
-let textoSupMeme = document.getElementById("texto-del-meme-superior");
-
-textoSuperior.addEventListener("input", function () {
-  textoSupMeme.textContent = textoSuperior.value;
+$(".area-superior").addEventListener("input", () => {
+  $(".texto-superior").textContent = $(".area-superior").value;
 });
 
-// Ocultar el texto superior
+// Oculta el texto SUPERIOR
 
-let ocultarTextoS = document.getElementById("sin-texto-superior");
-let textoSMeme = document.getElementById("texto-del-meme-superior");
-
-ocultarTextoS.addEventListener("change", function () {
-  textoSMeme.style.display = ocultarTextoS.checked ? "none" : "block";
-});
-
-// Texto inferior
-
-let textoInferior = document.getElementById("texto-inf");
-let textoInfMeme = document.getElementById("texto-del-meme-inferior");
-
-textoInferior.addEventListener("input", function () {
-  textoInfMeme.textContent = textoInferior.value;
-});
-
-// Ocultar el texto inferior
-
-let ocultarTextoI = document.getElementById("sin-texto-inferior");
-let textoIMeme = document.getElementById("texto-del-meme-inferior");
-
-ocultarTextoI.addEventListener("change", function () {
-  textoIMeme.style.display = ocultarTextoI.checked ? "none" : "block";
-});
-
-// Fuentes de letra
-
-const textoSup = document.getElementById("texto-del-meme-superior");
-const textoInf = document.getElementById("texto-del-meme-inferior");
-const fuenteDeFamilia = document.getElementById("fuente-de-familia");
-
-const cambiarFuente = (e) => {
-  const fuenteSeleccionada = e.target.value;
-  textoSup.style.fontFamily = fuenteSeleccionada;
-  textoInf.style.fontFamily = fuenteSeleccionada;
-};
-
-fuenteDeFamilia.addEventListener("change", cambiarFuente);
-
-// Tamaño de fuentes
-
-let tamañoDeFuente = document.getElementById("tamaño-de-fuente");
-
-let tamañoFuente = (e) => {
-  let tamañoSeleccionado = tamañoDeFuente.value;
-  textoSup.style.fontSize = tamañoSeleccionado + "px";
-  textoInf.style.fontSize = tamañoSeleccionado + "px";
-};
-
-tamañoDeFuente.addEventListener("input", tamañoFuente);
-
-// Alineacion
-
-let ajusteIzq = document.getElementById("btn-izq-ajuste");
-let ajustCentro = document.getElementById("btn-centro-ajuste");
-let ajusteDer = document.getElementById("btn-der-ajuste");
-
-let posicionIzq = () => {
-  textoSup.style.textAlign = "left";
-  textoInf.style.textAlign = "left";
-};
-
-let posicionCentro = () => {
-  textoSup.style.textAlign = "center";
-  textoInf.style.textAlign = "center";
-};
-
-let posicionDer = () => {
-  textoSup.style.textAlign = "right";
-  textoInf.style.textAlign = "right";
-};
-
-ajusteIzq.addEventListener("click", posicionIzq);
-ajustCentro.addEventListener("click", posicionCentro);
-ajusteDer.addEventListener("click", posicionDer);
-
-// Color de fuente
-
-const fuenteInput = document.getElementById("color-fuente");
-const fuenteSpan = document.getElementById("color-texto");
-const fondoSpan = document.getElementById("color-fondo-texto");
-
-fuenteInput.addEventListener("input", function () {
-  let colorFuente = fuenteInput.value;
-
-  fuenteSpan.style.color = colorFuente;
-  fuenteSpan.textContent = colorFuente;
-  fuenteSpan.style.setProperty("--circle-color", colorFuente);
-
-  textoSup.style.color = colorFuente;
-  textoInf.style.color = colorFuente;
-});
-
-// Color de fondo fuente
-
-const fondoFuente = document.getElementById("fondo-fuente");
-
-fondoFuente.addEventListener("input", function () {
-  let colorFondo = fondoFuente.value;
-
-  fondoSpan.style.color = colorFondo;
-  fondoSpan.textContent = colorFondo;
-  fondoSpan.style.setProperty("--circle-color", colorFondo);
-
-  textoSup.style.backgroundColor = colorFondo;
-  textoInf.style.backgroundColor = colorFondo;
-});
-
-// Fondo transparente
-
-let checkboxTransparente = document.getElementById("checkbox-transparente");
-let textoSp = document.getElementById("texto-del-meme-superior");
-let textoIf = document.getElementById("texto-del-meme-inferior");
-
-checkboxTransparente.addEventListener("change", function () {
-  if (checkboxTransparente.checked) {
-    textoSp.style.backgroundColor = "transparent";
-    textoIf.style.backgroundColor = "transparent";
+$("#ocultaTxtSup").addEventListener("change", () => {
+  if ($("#ocultaTxtSup").checked) {
+    $(".texto-superior").style.display = "none";
   } else {
-    textoSp.style.backgroundColor = "";
-    textoIf.style.backgroundColor = "";
+    $(".texto-superior").style.display = "block";
   }
 });
 
-// Contorno
+// Texto INFERIOR
 
-const ningunContorno = document.getElementById("btn-ningun-contorno");
-const contornoClaro = document.getElementById("btn-claro-contorno");
-const contornoOscuro = document.getElementById("btn-oscuro-contorno");
-
-ningunContorno.addEventListener("click", function () {
-  textoSup.style.textShadow = "none";
-  textoInf.style.textShadow = "none";
+$(".area-inferior").addEventListener("input", () => {
+  $(".texto-inferior").textContent = $(".area-inferior").value;
 });
 
-contornoClaro.addEventListener("click", function () {
-  textoSup.style.textShadow = "1px 1px 2px #FFFFFF";
-  textoInf.style.textShadow = "1px 1px 2px #FFFFFF";
+// Oculta el texto INFERIOR
+
+$("#ocultaTxtInf").addEventListener("change", () => {
+  if ($("#ocultaTxtInf").checked) {
+    $(".texto-inferior").style.display = "none";
+  } else {
+    $(".texto-inferior").style.display = "block";
+  }
 });
 
-contornoOscuro.addEventListener("click", function () {
-  textoSup.style.textShadow = "1px 1px 2px #000000";
-  textoInf.style.textShadow = "1px 1px 2px #000000";
+// Cambia las FUENTES de letras
+
+const cambiarFuente = (e) => {
+  const fuenteSeleccionada = e.target.value;
+  $(".texto-superior").style.fontFamily = fuenteSeleccionada;
+  $(".texto-inferior").style.fontFamily = fuenteSeleccionada;
+};
+
+$("#fuente-de-familia").addEventListener("change", cambiarFuente);
+
+// Cambia el TAMAÑO de fuentes
+
+const cambiaTamaño = () => {
+  const tamañoSeleccionado = $("#tamaño-de-fuente").value;
+  $(".texto-superior").style.fontSize = tamañoSeleccionado + "px";
+  $(".texto-inferior").style.fontSize = tamañoSeleccionado + "px";
+};
+
+$("#tamaño-de-fuente").addEventListener("change", cambiaTamaño);
+
+// ALINEACIÓN de fuentes
+
+const izquierda = () => {
+  $(".texto-superior").style.textAlign = "left";
+  $(".texto-inferior").style.textAlign = "left";
+};
+
+const centrado = () => {
+  $(".texto-superior").style.textAlign = "center";
+  $(".texto-inferior").style.textAlign = "center";
+};
+
+const derecha = () => {
+  $(".texto-superior").style.textAlign = "right";
+  $(".texto-inferior").style.textAlign = "right";
+};
+
+$("#btn-izquierda").addEventListener("click", izquierda);
+$("#btn-centrado").addEventListener("click", centrado);
+$("#btn-derecha").addEventListener("click", derecha);
+
+// COLOR de fuentes
+
+$("#color-fuente").addEventListener("input", () => {
+  const colorFuente = $("#color-fuente").value;
+  $("#color-texto").style.color = colorFuente;
+  $("#color-texto").textContent = colorFuente;
+  $("#color-texto").style.setProperty("--circle-color", colorFuente);
+  $(".texto-superior").style.color = colorFuente;
+  $(".texto-inferior").style.color = colorFuente;
 });
 
-// Espaciado
+// Color de FONDO de la fuente
 
-let espaciadoTexto = document.getElementById("espaciado");
-
-espaciadoTexto.addEventListener("input", function () {
-  let espaciado = espaciadoTexto.value + "px";
-  textoSup.style.letterSpacing = espaciado;
-  textoInf.style.letterSpacing = espaciado;
+$("#fondo-fuente").addEventListener("input", () => {
+  const colorFondo = $("#fondo-fuente").value;
+  $("#color-fondo-texto").style.color = colorFondo;
+  $("#color-fondo-texto").textContent = colorFondo;
+  $("#color-fondo-texto").style.setProperty("--circle-color", colorFondo);
+  $(".texto-superior").style.backgroundColor = colorFondo;
+  $(".texto-inferior").style.backgroundColor = colorFondo;
 });
 
-// Interlineado
+// Fondo TRANSPARENTE
 
-let interlineadoTexto = document.getElementById("select-interlineado");
-
-interlineadoTexto.addEventListener("change", function () {
-  let interlineado = interlineadoTexto.value;
-  textoSup.style.lineHeight = interlineado;
-  textoInf.style.lineHeight = interlineado;
+$("#checkbox-transparente").addEventListener("change", () => {
+  if ($("#checkbox-transparente").checked) {
+    $(".texto-superior").style.backgroundColor = "transparent";
+    $(".texto-inferior").style.backgroundColor = "transparent";
+  } else {
+    const selectedColor = $("#fondo-fuente").value;
+    $(".texto-superior").style.backgroundColor = selectedColor;
+    $(".texto-inferior").style.backgroundColor = selectedColor;
+  }
 });
 
-// Abrir y cerrar los paneles editores @media
+// CONTORNO
 
+$("#btn-ningun-contorno").addEventListener("click", () => {
+  $(".texto-superior").style.textShadow = "none";
+  $(".texto-inferior").style.textShadow = "none";
+});
+
+$("#btn-claro-contorno").addEventListener("click", () => {
+  $(".texto-superior").style.textShadow = "2px 2px 2px #FFFFFF";
+  $(".texto-inferior").style.textShadow = "2px 2px 2px #FFFFFF";
+});
+
+$("#btn-oscuro-contorno").addEventListener("click", () => {
+  $(".texto-superior").style.textShadow = "2px 2px 2px #000000";
+  $(".texto-inferior").style.textShadow = "2px 2px 2px #000000";
+});
+
+// ESPACIADO
+
+$("#espaciado").addEventListener("input", () => {
+  const espaciado = $("#espaciado").value + "px";
+  $(".texto-superior").style.letterSpacing = espaciado;
+  $(".texto-inferior").style.letterSpacing = espaciado;
+});
+
+$("#select-interlineado").addEventListener("change", () => {
+  const interlineado = $("#select-interlineado").value + "px";
+  $(".texto-superior").style.lineHeight = interlineado;
+  $(".texto-inferior").style.lineHeight = interlineado;
+});
+
+// Abrir y cerrar paneles en diseño responsive
 // Panel de IMAGEN
-const botonDeImg = document.querySelector(".boton-de-imagen");
-const cerrarMenu = document.querySelector(".cerrar-menu");
 
-botonDeImg.addEventListener("click", function() {
-  asideEditorImagen.style.display = "block";
+$(".botonImg").addEventListener("click", () => {
+  $(".editor-de-imagen").style.display = "block";
 });
 
-cerrarMenu.addEventListener("click", function() {
-  asideEditorImagen.style.display = "none";
+$(".cerrar-menu").addEventListener("click", () => {
+  $(".editor-de-imagen").style.display = "none";
 });
 
 // Panel de TEXTO
 
-const botonDeTxt = document.querySelector(".boton-de-fuente");
-const cerrarMenuTxt = document.querySelector(".cerrar-menu-txt")
-
-botonDeTxt.addEventListener("click", function() {
-  asideEditorTexto.style.display = "block";
+$(".botonFuente").addEventListener("click", () => {
+  $(".editor-de-texto").style.display = "block";
 });
 
-cerrarMenuTxt.addEventListener("click", function() {
-  asideEditorTexto.style.display = "none";
+$(".cerrar-menu-txt").addEventListener("click", () => {
+  $(".editor-de-texto").style.display = "none";
 });
-
-
-
-

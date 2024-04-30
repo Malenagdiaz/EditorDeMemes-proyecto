@@ -17,7 +17,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"
         integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="shortcut icon" href="Imagenes/icon.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="Imagenes/icon.jpg" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <title>Editor de memes</title>
 </head>
@@ -29,10 +29,10 @@
             <h1 class="titulo-principal">Generador de memes</h1>
             <nav class="botones-navegacion">
                 <!-- Botones -->
-                <button class="boton-de-imagen"><i class="fa-regular fa-image"></i>Imagen</button>
-                <button class="boton-de-fuente"><i class="fa-solid fa-font"></i>Texto</button>
-                <button class="boton-de-modo-oscuro"><i class="fa-solid fa-moon"></i>Modo oscuro</button>
-                <button class="boton-de-modo-claro"><i class="fa-regular fa-sun"></i>Modo claro</button>
+                <button class="botonImg headerBtn"><i class="fa-regular fa-image"></i>Imagen</button>
+                <button class="botonFuente headerBtn"><i class="fa-solid fa-font"></i>Texto</button>
+                <button class="boton-de-modo-oscuro headerBtn"><i class="fa-solid fa-moon"></i>Modo oscuro</button>
+                <button class="boton-de-modo-claro headerBtn"><i class="fa-regular fa-sun"></i>Modo claro</button>
             </nav>
         </header>
         <!-- Fin del HEADER -->
@@ -40,9 +40,9 @@
         <!-- Área del meme: IMAGEN Y TEXTO -->
         <main>
             <div class="contenedor-de-meme">
-                <p class="texto-superior" id="texto-del-meme-superior">NUEVO-TEXTO-SUPERIOR</p>
+                <p class="texto-superior">NUEVO-TEXTO-SUPERIOR</p>
                 <img src="./Imagenes/shrek-meme.jpg" alt="Imagen-de-meme" class="imagen-meme">
-                <p class="texto-inferior" id="texto-del-meme-inferior">NUEVO-TEXTO-INFERIOR</p>
+                <p class="texto-inferior" id="textoInf">NUEVO-TEXTO-INFERIOR</p>
             </div>
             <!-- Boton de descarga -->
             <button type="button" class="boton-de-descarga"><i class="fa-solid fa-download"></i>Descargar meme</button>
@@ -76,7 +76,8 @@
                 <h3>Fondo</h3>
                 <div class="colores-contenedor">
                     <div class="color-del-input">
-                        <input type="color" name="color-de-fondo" value="#FFFFFF" aria-label="Cambia de color el fondo" id="color-input">
+                        <input type="color" name="color-de-fondo" value="#FFFFFF" aria-label="Cambia de color el fondo"
+                            id="color-input">
                         <span id="color-de-fondo" aria-hidden="true">#FFFFFF</span>
                     </div>
                     <div>
@@ -137,8 +138,8 @@
                 </div>
                 <div class="contenedor-deslizador">
                     <label class="negativo-deslizador">Negativo</label>
-                    <input id="deslizador-de-negativo" class="filtro-deslizador" type="range" min="0" max="1"
-                        value="0.1">
+                    <input id="deslizador-de-negativo" class="filtro-deslizador" type="range" min="0" max="1" value="0"
+                        step="0.1">
                 </div>
             </div>
             <!-- Botón de restablecer filtros -->
@@ -154,25 +155,23 @@
         <section>
             <div class="titulo-principal-txt">
                 <h2 class="titulo-texto">Texto</h2>
-                <button class="cerrar-menu-txt" aria-label="Cerrar el menu"><i class="fa-solid fa-x"></i></button>
+                <button class="cerrar-menu-txt" aria-label=" Cerrar el menu"><i class="fa-solid fa-x"></i></button>
             </div>
             <!-- Sección de TEXTO -->
             <div class="texto-de-arriba">
                 <h3>Texto Superior</h3>
-                <textarea class="area-superior" id="texto-sup" aria-label="Texto superior"
-                    placeholder="Añade tu mensaje"></textarea>
+                <textarea class="area-superior" aria-label="Texto superior" placeholder="Añade tu mensaje"></textarea>
                 <div class="flex-check  control-checkbox">
-                    <input type="checkbox" id="sin-texto-superior">
-                    <label for="sin-texto-superior" id="ocultar-texto-sup">Ocultar texto</label>
+                    <input type="checkbox" id="ocultaTxtSup">
+                    <label for="sin-texto-superior">Ocultar texto</label>
                 </div>
             </div>
             <div class="texto-de-abajo">
                 <h3>Texto Inferior</h3>
-                <textarea class="area-inferior" id="texto-inf" aria-label="Texto inferior"
-                    placeholder="Añade tu mensaje"></textarea>
+                <textarea class="area-inferior" aria-label="Texto inferior" placeholder="Añade tu mensaje"></textarea>
                 <div class="flex-check control-checkbox">
-                    <input type="checkbox" id="sin-texto-inferior">
-                    <label for="sin-texto-inferior" id="ocultar-texto-inf">Ocultar texto</label>
+                    <input type="checkbox" id="ocultaTxtInf">
+                    <label for="sin-texto-inferior">Ocultar texto</label>
                 </div>
             </div>
             <!-- Editor de FUENTES -->
@@ -201,12 +200,12 @@
                 <!-- Alineación de FUENTE -->
                 <div class="alineacion-de-fuente">
                     <h3 class="titulo-alineacion">Alineación</h3>
-                    <button type="button" class="btn-ajuste-texto" id="btn-izq-ajuste"
-                        aria-label="Ajustar texto a la izquierda"><i class="fa-solid fa-align-left"></i></button>
-                    <button type="button" class="btn-ajuste-texto" id="btn-centro-ajuste"
-                        aria-label="Ajustar texto al centro"><i class="fa-solid fa-align-center"></i></button>
-                    <button type="button" class="btn-ajuste-texto" id="btn-der-ajuste"
-                        aria-label="Ajustar texto a la derecha"><i class="fa-solid fa-align-right"></i></button>
+                    <button type="button" id="btn-izquierda" aria-label="Ajustar texto a la izquierda"><i
+                            class="fa-solid fa-align-left"></i></button>
+                    <button type="button" id="btn-centrado" aria-label="Ajustar texto al centro"><i
+                            class="fa-solid fa-align-center"></i></button>
+                    <button type="button" id="btn-derecha" aria-label="Ajustar texto a la derecha"><i
+                            class="fa-solid fa-align-right"></i></button>
                 </div>
             </div>
             <!-- Color de FUENTE -->

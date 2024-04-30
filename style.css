@@ -27,7 +27,7 @@ header {
     font-size: 1.875rem;
     font-family: 'Amatic SC', sans-serif;
     font-family: 'Press Start 2P', system-ui;
-    background: linear-gradient(to right, #4b1c71, #7f4ca5, #b57edc);
+    background: linear-gradient(to right, #4b1c71, #7f4ca5, #26053d);
     -webkit-background-clip: text;
     color: transparent;
 }
@@ -37,42 +37,45 @@ header {
 .botones-navegacion {
     display: flex;
     justify-content: center;
+    gap: 20px;
 }
 
 .boton-de-modo-claro {
     display: none;
 }
 
-.boton-de-imagen,
-.boton-de-fuente,
-.boton-de-modo-oscuro,
-.boton-de-modo-claro {
-    margin: 10px;
-    font-size: 1.25rem;
-    font-family: 'Amatic SC', sans-serif;
-    color: #dac9df;
+.headerBtn {
+    position: relative;
+    background-color: transparent;
     border: none;
-    border-radius: 8px;
-    text-decoration: none;
-    background: none;
-    transition: border 0.1s ease, padding 0.1s ease;
-}
-
-.boton-de-imagen:hover,
-.boton-de-fuente:hover,
-.boton-de-modo-oscuro:hover,
-.boton-de-modo-claro:hover {
-    padding: 5px;
-    border: 2px solid;
-    border-radius: 20px;
+    font-size: 1.375rem;
     color: #1b003a;
+    font-family: 'Amatic SC', sans-serif;
+    padding: 0 10px;
+    cursor: pointer;
 }
 
-.boton-de-imagen i,
-.boton-de-fuente i,
-.boton-de-modo-oscuro i,
-.boton-de-modo-claro i {
+.headerBtn i {
     margin-right: 5px;
+}
+
+.headerBtn::after {
+    content: "";
+    position: absolute;
+    background-color: #1b003a;
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -10px;
+    transition: width 0.3s;
+}
+
+.headerBtn.modo-oscuro::after {
+    background-color: #dac9df;
+}
+
+.headerBtn:hover::after {
+    width: 100%;
 }
 
 /* Estilos para el ÁREA DEL MEME */
@@ -93,7 +96,7 @@ main {
     justify-content: center;
     background-color: white;
     width: 570px;
-    height: 475px;
+    height: 435px;
     box-shadow: 0 0 15px #1b003a;
     position: relative;
 }
@@ -131,13 +134,11 @@ main {
     background: linear-gradient(to right, #af7ead, #1b003a);
     color: #1b003a;
     padding: 6px 9px;
-    ;
     font-size: 1.125rem;
     font-family: 'Amatic SC', sans-serif;
     font-weight: bolder;
     box-shadow: 0 0 10px #1b003a;
-    margin-top: 8px;
-
+    margin-top: 20px;
 }
 
 .boton-de-descarga:hover {
@@ -170,7 +171,7 @@ main {
     font-size: 1.5rem;
     font-family: 'Press Start 2P', system-ui;
     color: #dac9df;
-    margin: 20px;
+    padding: 15px;
     flex-grow: 1;
 }
 
@@ -305,7 +306,6 @@ input[type="color"] {
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    margin-right: 10px;
     box-shadow: 0 0 10px #1b003a;
 }
 
@@ -396,7 +396,7 @@ input[type="color"] {
     font-size: 1.5rem;
     font-family: 'Press Start 2P', system-ui;
     color: #dac9df;
-    margin: 20px;
+    padding: 15px;
     flex-grow: 1;
 }
 
@@ -439,13 +439,13 @@ input[type="color"] {
     margin-right: 2px;
 }
 
-#texto-sup::placeholder {
+.area-superior::placeholder {
     color: #1b003a;
     font-family: 'Amatic SC', sans-serif;
     font-size: 1rem;
 }
 
-#texto-inf::placeholder {
+.area-inferior::placeholder {
     color: #1b003a;
     font-family: 'Amatic SC', sans-serif;
     font-size: 1rem;
@@ -496,7 +496,9 @@ label {
     box-shadow: 0 0 10px #1b003a;
 }
 
-.btn-ajuste-texto {
+#btn-izquierda,
+#btn-centrado,
+#btn-derecha {
     background-color: #dac9df;
     color: #3b113b;
     border: none;
@@ -507,7 +509,9 @@ label {
     box-shadow: 0 0 10px #1b003a;
 }
 
-.btn-ajuste-texto:hover {
+#btn-izquierda:hover,
+#btn-centrado:hover,
+#btn-derecha:hover {
     background-color: #3b113b;
     color: #dac9df;
 }
@@ -597,7 +601,7 @@ span#color-fondo-texto::before {
 /* ESPACIADO DE FUENTE */
 
 .espaciado-fuente {
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 #espaciado {
@@ -619,7 +623,7 @@ span#color-fondo-texto::before {
 /* INTERLINEADO DE FUENTE */
 
 .interlineado-fuente {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 #select-interlineado {
@@ -644,7 +648,7 @@ span#color-fondo-texto::before {
 
 /* Diseño RESPONSIVO */
 
-@media (max-width: 980px) {
+@media (max-width: 767px) {
 
     /* body */
     body {
@@ -664,7 +668,6 @@ span#color-fondo-texto::before {
 
     .titulo-principal {
         font-size: 1.25rem;
-        padding: 15px;
     }
 
     .boton-de-imagen,
@@ -678,8 +681,7 @@ span#color-fondo-texto::before {
     main {
         width: 100%;
         display: flex;
-        justify-content: center;
-        padding: 0;
+        justify-content: space-evenly;
     }
 
     .contenedor-de-meme {
@@ -687,28 +689,9 @@ span#color-fondo-texto::before {
         height: 350px;
     }
 
-    .boton-de-descarga {
-        margin-top: 20px;
-    }
 
-    /* Aside IMAGEN */
-    .editor-de-imagen {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-    }
-
-    .cerrar-menu{
-        display: inline-block;
-    }
-
-    .colores-contenedor{
-        display: flex;
-        justify-content: space-around;
-    }
-
-    /* Aside TEXTO */
+    /* IMAGEN */
+    .editor-de-imagen,
     .editor-de-texto {
         position: absolute;
         width: 100%;
@@ -716,16 +699,228 @@ span#color-fondo-texto::before {
         z-index: 1;
     }
 
-    .cerrar-menu-txt{
+    .cerrar-menu,
+    .cerrar-menu-txt {
         display: inline-block;
     }
 
-    .color-contenedor{
+    .colores-contenedor,
+    .color-contenedor {
         display: flex;
         justify-content: space-around;
     }
 
-    .opcion-checkbox{
+    .opcion-checkbox {
         text-align: center;
     }
+}
+
+/* Estilos para tablet */
+@media (min-width: 768px) and (max-width: 1230px) {
+
+    header {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .titulo-principal {
+        font-size: 2.5rem;
+    }
+
+    .headerBtn {
+        font-size: 2rem;
+    }
+
+    main {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    /* IMAGEN */
+
+    .editor-de-imagen {
+        width: auto;
+        height: auto;
+    }
+
+    .editor-de-texto {
+        width: auto;
+        height: auto;
+    }
+
+    .titulo-imagen,
+    .titulo-texto {
+        font-size: 2.2rem;
+    }
+
+    .titulo-añadeImagen {
+        font-size: 2rem;
+        margin-top: 20px;
+    }
+
+    .contenedor-de-inputs {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .input-url {
+        width: 100%;
+    }
+
+    .input-archivo {
+        margin-top: 15px;
+        width: 100%;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    .colores-contenedor {
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .contenedor-deslizador {
+        margin-top: 20px;
+    }
+
+    .btn-restablecer-filtros {
+        margin-top: 35px;
+    }
+
+}
+
+/* Estilos para computadora */
+@media (min-width: 1440px) {
+    header {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+    }
+
+    .titulo-principal {
+        font-size: 2.5rem;
+    }
+
+    .headerBtn {
+        font-size: 2rem;
+    }
+
+    main {
+        justify-content: space-evenly;
+    }
+
+    .contenedor-de-meme {
+        height: 700px;
+        width: 755px;
+    }
+
+    .texto-superior,
+    .texto-inferior {
+        padding: 40px;
+    }
+
+    .editor-de-imagen,
+    .editor-de-texto {
+        width: 25%;
+    }
+
+    .boton-de-descarga {
+        font-size: 2.2rem;
+    }
+
+    .titulo-imagen,
+    .titulo-texto {
+        font-size: 2.5rem;
+        margin-block: 25px;
+    }
+
+    /* IMAGEN */
+
+    .titulo-añadeImagen {
+        font-size: 2rem;
+    }
+
+    .url-de-imagen {
+        padding: 15px 20px;
+    }
+
+    #url-de-imagen::placeholder {
+        font-size: 2rem;
+    }
+
+    .btn-subir-archivo {
+        padding: 15px;
+    }
+
+    h3 {
+        font-size: 2.2rem;
+    }
+
+    .fondo-contenedor {
+        margin-top: 20px;
+    }
+
+    #color-de-fondo,
+    .mezcla-de-colores {
+        width: 200px;
+        height: 50px;
+    }
+
+    .color-del-input {
+        width: 200px;
+        height: 50px;
+    }
+
+    input[type="color"] {
+        width: 200px;
+        height: 50px;
+    }
+
+    .colores-contenedor {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        margin-top: 15px;
+    }
+
+    .filtros-contenedor {
+        margin-top: 20px;
+    }
+
+    label {
+        font-size: 2.1rem;
+    }
+
+    .contenedor-deslizador {
+        margin-top: 5px;
+    }
+
+    .boton-restablecedor {
+        font-size: 1.27rem;
+        margin-top: 20px;
+    }
+
+    /* TEXTO */
+
+    .area-superior,
+    .area-inferior {
+        height: 50px;
+    }
+
+    .area-superior::placeholder,
+    .area-inferior::placeholder {
+        font-size: 2rem;
+    }
+
+    .fuente-de-familia {
+        height: 50px;
+        font-size: 1.6rem;
+    }
+
+
 }

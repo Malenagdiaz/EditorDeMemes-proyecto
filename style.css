@@ -275,6 +275,7 @@ h3 {
 .colores-contenedor {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .color-del-input {
@@ -884,7 +885,6 @@ span#color-fondo-texto::before {
     .colores-contenedor {
         display: flex;
         align-items: center;
-        justify-content: space-evenly;
         margin-top: 15px;
     }
 

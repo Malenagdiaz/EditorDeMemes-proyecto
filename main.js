@@ -111,45 +111,53 @@ $(".boton-de-descarga").addEventListener("click", () => {
 // Color para el fondo de la Imagen
 
 $("#color-input").addEventListener("input", () => {
-  $(".contenedor-de-meme").style.backgroundColor = $("#color-input").value;
   const nuevoColor = $("#color-input").value;
-  $("#color-de-fondo").style.color = nuevoColor;
-  $("#color-de-fondo").textContent = nuevoColor;
-  $("#color-de-fondo").style.setProperty("--circle-color", nuevoColor);
+  $(".contenedor-de-meme").style.backgroundColor = nuevoColor;
+  const colorMayusculas = nuevoColor.toUpperCase();
+  $("#color-de-fondo").style.color = colorMayusculas;
+  $("#color-de-fondo").textContent = colorMayusculas;
+  $("#color-de-fondo").style.setProperty("--circle-color", colorMayusculas);
 });
 
 // Mezcla de colores
 
-$("#mezcla-de-colores").addEventListener("change", () => {
+$("#mezcla-de-colores").addEventListener("change", cambiarBlendMode);
+
+function cambiarBlendMode() {
   const mezcla = $("#mezcla-de-colores").value;
 
   switch (mezcla) {
-    case "NINGUNO":
-      $(".imagen-meme").style.filter = "none";
+    case "NORMAL":
+      $(".imagen-meme").style.mixBlendMode = "normal";
       break;
-    case "BRILLO":
-      $(".imagen-meme").style.filter = "brightness(1.8)";
+    case "SCREEN":
+      $(".imagen-meme").style.mixBlendMode = "screen";
       break;
-    case "DESENFOQUE":
-      $(".imagen-meme").style.filter = "blur(5px)";
+    case "LIGHTEN":
+      $(".imagen-meme").style.mixBlendMode = "lighten";
       break;
-    case "ACLARAR":
-      $(".imagen-meme").style.filter = "brightness(1.3)";
+    case "DARKEN":
+      $(".imagen-meme").style.mixBlendMode = "darken";
       break;
-    case "OSCURECER":
-      $(".imagen-meme").style.filter = "brightness(0.2)";
+    case "MULTIPLY":
+      $(".imagen-meme").style.mixBlendMode = "multiply";
       break;
-    case "CONTRASTE":
-      $(".imagen-meme").style.filter = "contrast(1.8)";
+    case "OVERLAY":
+      $(".imagen-meme").style.mixBlendMode = "overlay";
       break;
-    case "ESCALA-DE-GRISES":
-      $(".imagen-meme").style.filter = "grayscale(2)";
+    case "DIFFERENCE":
+      $(".imagen-meme").style.mixBlendMode = "difference";
       break;
-    case "MULTIPLICAR":
-      $(".imagen-meme").style.filter = "multiply(2)";
+    case "LUMINOSITY":
+      $(".imagen-meme").style.mixBlendMode = "luminosity";
       break;
+    case "COLOR":
+      $(".imagen-meme").style.mixBlendMode = "color";
+      break;
+    default:
+      $(".imagen-meme").style.mixBlendMode = "normal";
   }
-});
+}
 
 // Deslizadores
 

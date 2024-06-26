@@ -10,6 +10,7 @@
 
 .generador-de-meme {
     display: flex;
+    background-color: #f5dff5;
 }
 
 .meme-contenedor {
@@ -20,14 +21,14 @@
 
 header {
     width: 100%;
-    height: 20vh;
+    padding: 25px;
     background-color: #af7ead;
     box-shadow: 0 4px 5px #1b003a;
 }
 
 .titulo-principal {
     text-align: center;
-    padding: 20px;
+    margin-bottom: 20px;
     font-size: 1.875rem;
     font-family: 'Amatic SC', sans-serif;
     font-family: 'Press Start 2P', system-ui;
@@ -85,13 +86,12 @@ header {
 /* Estilos para el ÁREA DEL MEME */
 
 main {
-    background-color: #f5dff5;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    height: 80vh;
-    padding: 15px;
+    min-height: 75vh;
+    margin-top: 20px;
 }
 
 .contenedor-de-meme {
@@ -128,7 +128,7 @@ main {
 .imagen-meme {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 
@@ -159,8 +159,8 @@ main {
 
 .editor-de-imagen {
     width: 20vw;
-    padding: 20px 10px;
-    height: 100vh;
+    padding: 15px 10px;
+    ;
     background-color: #b988b8;
 }
 
@@ -175,7 +175,7 @@ main {
     font-size: 1.5rem;
     font-family: 'Press Start 2P', system-ui;
     color: #dac9df;
-    padding: 15px;
+    padding-block: 15px;
     flex-grow: 1;
 }
 
@@ -385,8 +385,8 @@ input[type="color"] {
 
 .editor-de-texto {
     width: 20vw;
-    padding: 20px 10px;
-    height: 100vh;
+    padding: 15px 10px;
+    ;
     background-color: #b988b8;
 }
 
@@ -401,7 +401,7 @@ input[type="color"] {
     font-size: 1.5rem;
     font-family: 'Press Start 2P', system-ui;
     color: #dac9df;
-    padding: 15px;
+    padding-block: 15px;
     flex-grow: 1;
 }
 
@@ -800,7 +800,7 @@ span#color-fondo-texto::before {
 }
 
 /* Estilos para computadora */
-@media (min-width: 1440px) {
+@media (max-width: 992px) and (min-width: 1440px) {
     header {
         display: flex;
         justify-content: space-evenly;
@@ -817,6 +817,7 @@ span#color-fondo-texto::before {
 
     main {
         justify-content: space-evenly;
+        height: 80vh;
     }
 
     .contenedor-de-meme {
@@ -832,6 +833,7 @@ span#color-fondo-texto::before {
     .editor-de-imagen,
     .editor-de-texto {
         width: 25%;
+        height: 100vh;
     }
 
     .boton-de-descarga {

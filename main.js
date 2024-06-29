@@ -4,7 +4,7 @@ const $ = (selector) => document.querySelector(selector);
 
 $(".boton-de-modo-claro").addEventListener("click", () => {
   $("header").style.backgroundColor = "#af7ead";
-  $("main").style.backgroundColor = "#f5dff5";
+  $("body").style.backgroundColor = "#f5dff5";
   $(".editor-de-imagen").style.backgroundColor = "#b988b8";
   $(".editor-de-texto").style.backgroundColor = "#b988b8";
   document.querySelectorAll("h3").forEach((h3) => {
@@ -37,7 +37,7 @@ $(".boton-de-modo-claro").addEventListener("click", () => {
 
 $(".boton-de-modo-oscuro").addEventListener("click", () => {
   $("header").style.backgroundColor = "#1b003a";
-  $("main").style.backgroundColor = "#3d0b60";
+  $("body").style.backgroundColor = "#3d0b60";
   $(".editor-de-imagen").style.backgroundColor = "#230443";
   $(".editor-de-texto").style.backgroundColor = "#230443";
   document.querySelectorAll("h3").forEach((h3) => {

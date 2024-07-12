@@ -159,8 +159,8 @@ main {
 
 .editor-de-imagen {
     width: 20vw;
+    height: 100vh;
     padding: 15px 10px;
-    ;
     background-color: #b988b8;
 }
 
@@ -385,8 +385,8 @@ input[type="color"] {
 
 .editor-de-texto {
     width: 20vw;
+    height: 100vh;
     padding: 15px 10px;
-    ;
     background-color: #b988b8;
 }
 
